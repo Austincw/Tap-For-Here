@@ -1,0 +1,6 @@
+framework module Pods_Tap_For_Here {
+  umbrella header "Pods-Tap For Here-umbrella.h"
+
+  export *
+  module * { export * }
+}
