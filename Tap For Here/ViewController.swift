@@ -38,7 +38,7 @@ class ViewController: UIViewController{
         print("*****")
     
         terst.start() // Read NFC Tag
-//        terst
+        terst
         
     }
     
