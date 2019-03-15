@@ -10,6 +10,7 @@
 		543056DD8F7C7FD06231F361 /* Pods_Tap_For_Here.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E7808B56BC0AC4B8E164CC /* Pods_Tap_For_Here.framework */; };
 		8D12AF35222499AB005DB07E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D12AF34222499AB005DB07E /* GoogleService-Info.plist */; };
 		8D4E5610222852860029F355 /* NFCReadTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E560F222852860029F355 /* NFCReadTag.swift */; };
+		8D65653B223ABEF0007EDD64 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65653A223ABEF0007EDD64 /* SecondViewController.swift */; };
 		8DAAFB82222495CC00DAE1DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAAFB81222495CC00DAE1DE /* AppDelegate.swift */; };
 		8DAAFB84222495CC00DAE1DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAAFB83222495CC00DAE1DE /* ViewController.swift */; };
 		8DAAFB87222495CC00DAE1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DAAFB85222495CC00DAE1DE /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		8D12AF34222499AB005DB07E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D4E560E222845310029F355 /* Tap For Here.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Tap For Here.entitlements"; sourceTree = "<group>"; };
 		8D4E560F222852860029F355 /* NFCReadTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCReadTag.swift; sourceTree = "<group>"; };
+		8D65653A223ABEF0007EDD64 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		8DAAFB7E222495CC00DAE1DE /* Tap For Here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tap For Here.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAAFB81222495CC00DAE1DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DAAFB83222495CC00DAE1DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				8DAAFB81222495CC00DAE1DE /* AppDelegate.swift */,
 				8DAAFB83222495CC00DAE1DE /* ViewController.swift */,
 				8DAAFB85222495CC00DAE1DE /* Main.storyboard */,
+				8D65653A223ABEF0007EDD64 /* SecondViewController.swift */,
 				8DAAFB88222495CC00DAE1DE /* Assets.xcassets */,
 				8DAAFB8A222495CC00DAE1DE /* LaunchScreen.storyboard */,
 				8DAAFB8D222495CC00DAE1DE /* Info.plist */,
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D65653B223ABEF0007EDD64 /* SecondViewController.swift in Sources */,
 				8DAAFB84222495CC00DAE1DE /* ViewController.swift in Sources */,
 				8DAAFB82222495CC00DAE1DE /* AppDelegate.swift in Sources */,
 				8D4E5610222852860029F355 /* NFCReadTag.swift in Sources */,
