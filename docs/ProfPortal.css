@@ -1,0 +1,32 @@
+.resizedButton {
+    width: 265px; 
+    height: 50px;
+    font-size: 75%;
+    background-color: #0f469e;
+    color: #FFE571;
+    border: 2px solid white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 8px;
+}
+.TitleFont {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 40px;
+    letter-spacing: 0.4px;
+    word-spacing: 6px;
+    color: #0f469e;
+    font-weight: 700;
+    text-decoration: overline solid rgb(68, 68, 68);
+    text-decoration: underline solid rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+}
+
+.divCenter {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
