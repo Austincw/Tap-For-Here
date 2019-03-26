@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            @import url("ProfPortal.css");
+            html {
+                background-color: #FFE571;                    
+                color: #0f469e;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+            }
+        </style>
+        <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+        <script src="ProfPort.js">
+
+        </script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyA8aiK4T2JoJh4LIzxHATcTPP_Zhf4qAFc",
+                authDomain: "tap-for-here-project.firebaseapp.com",
+                databaseURL: "https://tap-for-here-project.firebaseio.com", 
+                // projectId: "tap-for-here-project",
+                storageBucket: "gs://tap-for-here-project.appspot.com", //gs://tap-for-here-project.appspot.com.appspot.com???
+                // messagingSenderId: "229543974217",
+            };
+            firebase.initializeApp(config);
+        </script>  
+        <h1 class="TitleFont">Tap For Here</h1>
+    </head>
+    <body onload="numOfStud()">
+        <div id="classInfo">
+            <p>Professor Email: <input type='text' value='' id='email' /><br/></p>
+            <p>Course Name: <input type='text' value='' id='crsName' /><br/></p>
+            <p>Room ID: <input type='text' value='' id='rmID' /><br/></p>
+            <p>Course Day: <input type='text' value='' id='crsDay' /><br/></p>
+            <p>Course Time: <input type='text' value='' id='crsTime' /><br/></p>
+            <p>Student Email: </p>
+        </div>
+        <div id="textboxes"></div>
+        <div id="button" onclick="store()"><button type="submit" class="resizedButton">Submit</button></div>
+        <p id='demo'></p>
+    </body>
+</html>
