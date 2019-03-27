@@ -8,4 +8,6 @@ target 'Tap For Here' do
   # Pods for Tap For Here
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 end

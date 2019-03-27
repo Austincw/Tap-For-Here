@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>805096087832-ii7mf2a9oj8lk7aacp2a7j3aba5q3n55.apps.googleusercontent.com</string>
+	<string>229543974217-6on405k679pcpud8qq98o0h39tcem35u.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.805096087832-ii7mf2a9oj8lk7aacp2a7j3aba5q3n55</string>
+	<string>com.googleusercontent.apps.229543974217-6on405k679pcpud8qq98o0h39tcem35u</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC8vQXMKXX5x7ApS1vVw7jcrH1tn2YQbVQ</string>
+	<string>AIzaSyAQflX2T3AOtlnJZwl4Ez3_LBNq7d-m5kc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>805096087832</string>
+	<string>229543974217</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.rainbow3.Tap-For-Here</string>
 	<key>PROJECT_ID</key>
-	<string>tap-for-here-project-testing</string>
+	<string>tap-for-here-project</string>
 	<key>STORAGE_BUCKET</key>
-	<string>tap-for-here-project-testing.appspot.com</string>
+	<string>tap-for-here-project.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:805096087832:ios:92376ac4cc984a31</string>
+	<string>1:229543974217:ios:92376ac4cc984a31</string>
 	<key>DATABASE_URL</key>
-	<string>https://tap-for-here-project-testing.firebaseio.com</string>
+	<string>https://tap-for-here-project.firebaseio.com</string>
 </dict>
 </plist>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EC6712B2242A17E00A87D07 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6712A2242A17E00A87D07 /* SignInViewController.swift */; };
 		543056DD8F7C7FD06231F361 /* Pods_Tap_For_Here.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E7808B56BC0AC4B8E164CC /* Pods_Tap_For_Here.framework */; };
 		8D12AF35222499AB005DB07E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D12AF34222499AB005DB07E /* GoogleService-Info.plist */; };
 		8D4E5610222852860029F355 /* NFCReadTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E560F222852860029F355 /* NFCReadTag.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EC6712A2242A17E00A87D07 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		56E7808B56BC0AC4B8E164CC /* Pods_Tap_For_Here.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tap_For_Here.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D12AF34222499AB005DB07E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D4E560E222845310029F355 /* Tap For Here.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Tap For Here.entitlements"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				8DAAFB81222495CC00DAE1DE /* AppDelegate.swift */,
 				8DAAFB83222495CC00DAE1DE /* ViewController.swift */,
 				8DAAFB85222495CC00DAE1DE /* Main.storyboard */,
+				3EC6712A2242A17E00A87D07 /* SignInViewController.swift */,
 				8D65653A223ABEF0007EDD64 /* SecondViewController.swift */,
 				8DAAFB88222495CC00DAE1DE /* Assets.xcassets */,
 				8DAAFB8A222495CC00DAE1DE /* LaunchScreen.storyboard */,
@@ -111,6 +114,7 @@
 				8DAAFB7B222495CC00DAE1DE /* Frameworks */,
 				8DAAFB7C222495CC00DAE1DE /* Resources */,
 				A431E85404A2BD78EE7152A7 /* [CP] Embed Pods Frameworks */,
+				4E74F3037F8370E7FF7A9770 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,6 +178,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4E74F3037F8370E7FF7A9770 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tap For Here/Pods-Tap For Here-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tap For Here/Pods-Tap For Here-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		916364E1E3746A1530859743 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,6 +231,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Tap For Here/Pods-Tap For Here-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -213,6 +241,8 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -232,6 +262,7 @@
 				8D65653B223ABEF0007EDD64 /* SecondViewController.swift in Sources */,
 				8DAAFB84222495CC00DAE1DE /* ViewController.swift in Sources */,
 				8DAAFB82222495CC00DAE1DE /* AppDelegate.swift in Sources */,
+				3EC6712B2242A17E00A87D07 /* SignInViewController.swift in Sources */,
 				8D4E5610222852860029F355 /* NFCReadTag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

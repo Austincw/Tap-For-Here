@@ -31,6 +31,10 @@ class ViewController: UIViewController{
         topButton.layer.cornerRadius = 40
         roundedCornerButton.layer.cornerRadius = 26
         
+        //REMOVE
+//        ref = Database.database().reference()
+//        ref.setValue(["username": "this works!"])
+        
     }
     
     //This function occurs when you tap for here
@@ -49,8 +53,15 @@ class ViewController: UIViewController{
     //This function occurs during the transition from ViewController to SecondViewController ***also when you tap "Register"****
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSecondViewController" {
+            
+            // This section of code is for testing writing data to Firebase when opening the second view controller, LEAVE FOR REFERENCE
+//            ref = Database.database().reference()
+//            self.ref.child("RegisteredStudents").updateChildValues(["you": "TESTING"])
+//            ref.setValue(["/RegisteredStudents/": "TESTING"])
+            
+            
             let secondViewController = segue.destination as! SecondViewController
-            secondViewController.textField1.text = "Hello, World"
+
         }
     }
 }
