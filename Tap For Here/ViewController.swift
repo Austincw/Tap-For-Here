@@ -21,10 +21,10 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var roundedCornerButton: UIButton!
-    var ref: DatabaseReference!
+    
     var session: NFCNDEFReaderSession?
     
-    let terst = NFCReadTag()
+    let scanTag = NFCReadTag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class ViewController: UIViewController{
     @IBAction func topButtonAction(_ sender: Any) {
         print("*****")
         
-        terst.start() // Read NFC Tag
+        scanTag.start() // Read NFC Tag
     }
     
     //This function occurs when you tap "Register"
@@ -53,12 +53,6 @@ class ViewController: UIViewController{
     //This function occurs during the transition from ViewController to SecondViewController ***also when you tap "Register"****
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSecondViewController" {
-            
-            // This section of code is for testing writing data to Firebase when opening the second view controller, LEAVE FOR REFERENCE
-//            ref = Database.database().reference()
-//            self.ref.child("RegisteredStudents").updateChildValues(["you": "TESTING"])
-//            ref.setValue(["/RegisteredStudents/": "TESTING"])
-            
             
             let secondViewController = segue.destination as! SecondViewController
 
