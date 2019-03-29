@@ -13,12 +13,23 @@ import GoogleSignIn
 import FirebaseDatabase
 
 class SecondViewController: UIViewController, GIDSignInUIDelegate {
+    //Firebase usage
+    var db: DatabaseReference!
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     
-    @IBOutlet weak var textField1: UITextField!
-    @IBOutlet weak var textField2: UITextField!
-    @IBOutlet weak var textField3: UITextField!
+    var firstName: String?
+    var lastName: String?
+    var email: String?
+    var fullname: String!
+
+    
+    //renamed text fields to be relevant to inputs
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
     @IBOutlet weak var buttonOnSecondView:
     UIButton!
     
@@ -42,5 +53,30 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate {
             print("\(error.localizedDescription)")
         }
     }
+    
+    func sendRegisterInfo(name: String, studentEmail: String){
+         // This section of code is for testing writing data to Firebase when opening the second view controller, LEAVE FOR REFERENCE
+        
+        db = Database.database().reference()
+        self.db.child("RegisteredStudents").updateChildValues([name: studentEmail])
+        //        db.setValue(["/RegisteredStudents/": "TESTING"])
+        
+    }
+    
+    
+    @IBAction func submitInfo(_ sender: Any) {
+        firstName = String(firstNameField.text!)
+        lastName = String(lastNameField.text!)
+        email = String(emailField.text!)
+        firstNameField.text = ""
+        lastNameField.text = ""
+        emailField.text = ""
+        
+        fullname = "\(firstName!) \(lastName!)"
+        sendRegisterInfo(name: fullname!, studentEmail: email!)
+        
+//        print("First Name :\(firstName), Last Name: \(lastName), Email: \(email)")
+    }
+    
     
 }
