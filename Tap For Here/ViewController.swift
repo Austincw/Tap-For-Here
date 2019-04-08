@@ -25,6 +25,7 @@ class ViewController: UIViewController{
     var session: NFCNDEFReaderSession?
     
     let scanTag = NFCReadTag()
+    let recAttend = RecordAttendance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +40,9 @@ class ViewController: UIViewController{
     
     //This function occurs when you tap for here
     @IBAction func topButtonAction(_ sender: Any) {
-        print("*****")
         
         scanTag.start() // Read NFC Tag
+        recAttend.determineAttendance() // Record student attendance
     }
     
     //This function occurs when you tap "Register"
