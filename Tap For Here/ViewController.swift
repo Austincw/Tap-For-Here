@@ -21,23 +21,28 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var roundedCornerButton: UIButton!
-    var ref: DatabaseReference!
+    
     var session: NFCNDEFReaderSession?
     
-    let terst = NFCReadTag()
+    let scanTag = NFCReadTag()
+    let recAttend = RecordAttendance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         topButton.layer.cornerRadius = 40
         roundedCornerButton.layer.cornerRadius = 26
         
+        //REMOVE
+//        ref = Database.database().reference()
+//        ref.setValue(["username": "this works!"])
+        
     }
     
     //This function occurs when you tap for here
     @IBAction func topButtonAction(_ sender: Any) {
-        print("*****")
         
-        terst.start() // Read NFC Tag
+        scanTag.start() // Read NFC Tag
+        recAttend.determineAttendance() // Record student attendance
     }
     
     //This function occurs when you tap "Register"
@@ -49,8 +54,9 @@ class ViewController: UIViewController{
     //This function occurs during the transition from ViewController to SecondViewController ***also when you tap "Register"****
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSecondViewController" {
+            
             let secondViewController = segue.destination as! SecondViewController
-            secondViewController.textField1.text = "Hello, World"
+
         }
     }
 }

@@ -13,7 +13,10 @@ import FirebaseDatabase
 
 class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
     
-    var ref: DatabaseReference!
+    var db: DatabaseReference!
+    var tagMessage: String!
+    var studentEmail = UserDefaults.standard.string(forKey: "Student Email")
+    
     
     func start(){
         let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
@@ -24,14 +27,16 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
         print(error.localizedDescription)
     }
     
+    
+    //Used for creating an NFC reader session to read contents on NFC tag
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
         for message in messages {
             for record in message.records {
-                if let string = String(data: record.payload, encoding: .ascii){
-                    print(string)
+                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)
+                if (tagMessage != nil) {
                     
-                    ref = Database.database().reference()
-                    ref.setValue(["username": string])
+                    db = Database.database().reference()
+                    db.updateChildValues(["username": tagMessage])
                 }
             }
         }
