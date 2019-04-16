@@ -32,11 +32,13 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
         for message in messages {
             for record in message.records {
-                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)
+                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)!
                 if (tagMessage != nil) {
                     
-                    db = Database.database().reference()
-                    db.updateChildValues(["username": tagMessage])
+                    print(tagMessage)
+
+//                    db = Database.database().reference()
+//                    db.updateChildValues(["username": tagMessage])
                 }
             }
         }

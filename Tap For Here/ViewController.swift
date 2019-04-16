@@ -42,7 +42,7 @@ class ViewController: UIViewController{
     @IBAction func topButtonAction(_ sender: Any) {
         
         scanTag.start() // Read NFC Tag
-        recAttend.determineAttendance() // Record student attendance
+//        recAttend.determineAttendance() // Record student attendance
     }
     
     //This function occurs when you tap "Register"
