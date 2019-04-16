@@ -23,6 +23,7 @@ class ViewController: UIViewController{
     @IBOutlet weak var roundedCornerButton: UIButton!
     
     var session: NFCNDEFReaderSession?
+    var scannedMsg: String!
     
     let scanTag = NFCReadTag()
     let recAttend = RecordAttendance()
@@ -38,11 +39,21 @@ class ViewController: UIViewController{
     //This function occurs when you tap for here
     @IBAction func topButtonAction(_ sender: Any) {
         
+
         let simScan:String = scanTag.simReadNFC() //Simulate reading an NFC Tag
 //        scanTag.start() // Read Physical NFC Tag
-//        recAttend.determineAttendance(roomID: scanTag.scannedMessage[1]) // Record student attendance
-        recAttend.determineAttendance(roomID: simScan) // Record student attendance
         
+
+
+
+//        let simScan:String = scanTag.simReadNFC() //Simulate reading an NFC Tag
+        scanTag.start() // Read Physical NFC Tag
+
+    }
+    
+    func passToAttendance(tagMsg: String){
+         recAttend.determineAttendance(roomID: tagMsg) // Record student attendance
+
     }
     
     //This function occurs when you tap "Register"

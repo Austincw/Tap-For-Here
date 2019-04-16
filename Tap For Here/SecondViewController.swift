@@ -12,6 +12,17 @@ import FirebaseAuth
 import GoogleSignIn
 import FirebaseDatabase
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollViewDelegate {
     //Firebase usage
     var db: DatabaseReference!
@@ -46,8 +57,11 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         
         buttonOnSecondView.layer.cornerRadius = 10
         // Do any additional setup after loading the view, typically from a nib.
+        self.hideKeyboardWhenTappedAround()
         
     }
+    
+    
     
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,

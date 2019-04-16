@@ -25,6 +25,7 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
     }
     //************************
     
+   
     
     func start(){
         let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
@@ -41,13 +42,18 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]){
         for message in messages {
             for record in message.records {
-                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)
+                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)!
                 if (tagMessage != nil) {
                     
                     print(tagMessage)
+                    let vc = ViewController()
                     scannedMessage = tagMessage.components(separatedBy: "#")
+                    vc.passToAttendance(tagMsg: scannedMessage[1])
+
+                
                     
                     
+
 //                    db = Database.database().reference()
 //                    db.updateChildValues(["username": tagMessage])
                 }
