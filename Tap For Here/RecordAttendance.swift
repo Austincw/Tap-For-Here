@@ -28,11 +28,11 @@ class RecordAttendance: NSObject {
         let studEmailKey = studEmail!.components(separatedBy: delim)
         
         let markAttenRef = Database.database().reference()
-<<<<<<< HEAD
+
         markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues(["frank": true])
-=======
-        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues([studEmailKey[0]: true])
->>>>>>> a3170b43c4f6c7c60393664ad92ee227d8ef7362
+
+//        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues([studEmailKey[0]: true])
+
         
         
         
