@@ -41,13 +41,17 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]){
         for message in messages {
             for record in message.records {
-                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)
+                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)!
                 if (tagMessage != nil) {
                     
                     print(tagMessage)
-                    scannedMessage = tagMessage.components(separatedBy: "#")
+<<<<<<< HEAD
+
+=======
+                
                     
                     
+>>>>>>> 4b1455a6587f8b490ddbfeaebe6e3f7ca391288a
 //                    db = Database.database().reference()
 //                    db.updateChildValues(["username": tagMessage])
                 }
