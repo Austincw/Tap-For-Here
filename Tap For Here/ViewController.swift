@@ -46,8 +46,8 @@ class ViewController: UIViewController{
 
     }
     
-    func passToAttendance(msg: String){
-         recAttend.determineAttendance(roomID: msg) // Record student attendance
+    func passToAttendance(tagMsg: String){
+         recAttend.determineAttendance(roomID: tagMsg) // Record student attendance
     }
     
     //This function occurs when you tap "Register"

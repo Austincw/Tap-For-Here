@@ -28,7 +28,7 @@ class RecordAttendance: NSObject {
         let studEmailKey = studEmail!.components(separatedBy: delim)
         
         let markAttenRef = Database.database().reference()
-        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues([studEmailKey: true])
+        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues([studEmailKey[0]: true])
         
         
         
@@ -73,7 +73,7 @@ class RecordAttendance: NSObject {
         format.timeZone = TimeZone.current
         format.dateFormat = "HHmm"
         let currentTime = format.string(from: date as Date)
-        let timeInt = Int(currentTime)
+        let timeInt = Int(currentTime)!
         
         //GET FIRST LETTER OF DAY OF WEEK
         let weekday = format.weekdaySymbols[Calendar.current.component(.weekday, from: date as Date)-1]
@@ -88,7 +88,7 @@ class RecordAttendance: NSObject {
             let startT = snap!["startTime"] as? String
             let endT = snap!["endTime"] as? String
             
-            if (Int(startT!)! <= timeInt! && timeInt! <= Int(endT!)! && (daysOfWeek?.contains(weekDayLetter[0]))!) { // The official version
+            if (Int(startT!)! <= timeInt && timeInt <= Int(endT!)! && (daysOfWeek?.contains(weekDayLetter[0]))!) { // The official version
                 self.foundTime = true
                 completion(course)
             }
