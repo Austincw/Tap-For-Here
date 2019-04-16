@@ -48,7 +48,7 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
                     print(tagMessage)
                     let vc = ViewController()
                     scannedMessage = tagMessage.components(separatedBy: "#")
-                    vc.passToAttendance(msg: scannedMessage[1])
+                    vc.passToAttendance(tagMsg: scannedMessage[1])
 
                 
                     
