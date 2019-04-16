@@ -40,6 +40,11 @@ class ViewController: UIViewController{
     @IBAction func topButtonAction(_ sender: Any) {
         
 
+        let simScan:String = scanTag.simReadNFC() //Simulate reading an NFC Tag
+//        scanTag.start() // Read Physical NFC Tag
+        
+
+
 
 //        let simScan:String = scanTag.simReadNFC() //Simulate reading an NFC Tag
         scanTag.start() // Read Physical NFC Tag
@@ -48,6 +53,7 @@ class ViewController: UIViewController{
     
     func passToAttendance(tagMsg: String){
          recAttend.determineAttendance(roomID: tagMsg) // Record student attendance
+
     }
     
     //This function occurs when you tap "Register"
