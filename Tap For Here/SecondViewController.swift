@@ -22,7 +22,8 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
     var lastName: String?
     var email: String?
     var fullname: String!
-
+    var studentEmail = UserDefaults.standard.string(forKey: "Student Email")
+    
     
     //renamed text fields to be relevant to inputs
     @IBOutlet weak var firstNameField: UITextField!
@@ -48,6 +49,7 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         
     }
     
+    
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         if (error == nil) {
@@ -58,6 +60,7 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         }
     }
     
+    
     //Function used to send information inputted when the student registers to the database
     func sendRegisterInfo(name: String, studentEmail: String){
         
@@ -65,6 +68,7 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         self.db.child("RegisteredStudents").updateChildValues([name: studentEmail])
         
     }
+    
     
     //makes sure the email inputted follows the format of "username@aggies.ncat.edu"
     func validateStudentEmail(studentEmail: String) -> Bool {
@@ -81,6 +85,8 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         }
     }
     
+    
+    //Check for missing input and email matching
     func checkAndValidateFields() -> Bool {
         
         //Checks if the user is missing input in a text field
@@ -126,7 +132,8 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         UserDefaults.standard.set(email!, forKey: "Student Email")
         
         fullname = "\(firstName!) \(lastName!)"
-//        sendRegisterInfo(name: fullname!, studentEmail: email!)
+//        let emailUserName = email!.components(separatedBy: "@")//NOT SURE IF NEEDED, KEEP FOR NOW
+        sendRegisterInfo(name: fullname!, studentEmail: email!)
         
     }
     
