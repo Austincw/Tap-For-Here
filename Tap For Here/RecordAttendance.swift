@@ -28,7 +28,7 @@ class RecordAttendance: NSObject {
         let studEmailKey = studEmail!.components(separatedBy: delim)
         
         let markAttenRef = Database.database().reference()
-        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues([studEmailKey: true])
+        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues(["frank": true])
         
         
         
@@ -88,16 +88,16 @@ class RecordAttendance: NSObject {
             let startT = snap!["startTime"] as? String
             let endT = snap!["endTime"] as? String
             
-            if (Int(startT!)! <= timeInt! && timeInt! <= Int(endT!)! && (daysOfWeek?.contains(weekDayLetter[0]))!) { // The official version
-                self.foundTime = true
-                completion(course)
-            }
-//            let testTime = 1215
-//            let dayLetterTest = "T"
-//            if (Int(startT!)! <= testTime && testTime <= Int(endT!)! && (daysOfWeek?.contains(dayLetterTest))!) { //THIS ONE IS USED FOR TESTING
+//            if (Int(startT!)! <= timeInt! && timeInt! <= Int(endT!)! && (daysOfWeek?.contains(weekDayLetter[0]))!) { // The official version
 //                self.foundTime = true
 //                completion(course)
 //            }
+            let testTime = 1215
+            let dayLetterTest = "T"
+            if (Int(startT!)! <= testTime && testTime <= Int(endT!)! && (daysOfWeek?.contains(dayLetterTest))!) { //THIS ONE IS USED FOR TESTING
+                self.foundTime = true
+                completion(course)
+            }
             
             // DELETE SECTION BELOW
 //            print(course)
