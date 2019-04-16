@@ -25,6 +25,7 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
     }
     //************************
     
+   
     
     func start(){
         let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
@@ -45,13 +46,14 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
                 if (tagMessage != nil) {
                     
                     print(tagMessage)
-<<<<<<< HEAD
+                    let vc = ViewController()
+                    scannedMessage = tagMessage.components(separatedBy: "#")
+                    vc.passToAttendance(msg: scannedMessage[1])
 
-=======
                 
                     
                     
->>>>>>> 4b1455a6587f8b490ddbfeaebe6e3f7ca391288a
+
 //                    db = Database.database().reference()
 //                    db.updateChildValues(["username": tagMessage])
                 }
