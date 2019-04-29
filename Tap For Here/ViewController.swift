@@ -18,8 +18,16 @@ import CoreNFC
 class ViewController: UIViewController{
     
     
+    @IBAction func registerButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "segue", sender: self)
+    }
     
-    @IBOutlet weak var topButton: UIButton!
+    @IBAction func infoButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueInfo", sender: self)
+    }
+    
+    
+    @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var roundedCornerButton: UIButton!
     
     var session: NFCNDEFReaderSession?
@@ -30,14 +38,19 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topButton.layer.cornerRadius = 40
-        roundedCornerButton.layer.cornerRadius = 26
+        scanButton.setTitleColor(UIColor.gray, for: .disabled)
+//        topButton.layer.cornerRadius = 40
+//        roundedCornerButton.layer.cornerRadius = 26
         
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     //This function occurs when you tap for here
-    @IBAction func topButtonAction(_ sender: Any) {
+    @IBAction func scanButtonAction(_ sender: Any) {
         
 
         let simScan:String = scanTag.simReadNFC() //Simulate reading an NFC Tag

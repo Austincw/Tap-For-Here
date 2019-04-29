@@ -23,7 +23,7 @@ extension UIViewController {
     }
 }
 
-class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollViewDelegate {
+class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollViewDelegate, UITextFieldDelegate {
     //Firebase usage
     var db: DatabaseReference!
     
@@ -45,6 +45,9 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
     @IBOutlet weak var validEmailLabel: UILabel!
     @IBOutlet weak var emailMismatchLabel: UILabel!
     
+    @IBAction func backButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "segue", sender: self)
+    }
     
     @IBOutlet weak var buttonOnSecondView:
     UIButton!
@@ -55,10 +58,14 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         GIDSignIn.sharedInstance().uiDelegate = self as! GIDSignInUIDelegate
         GIDSignIn.sharedInstance().signIn()
         
-        buttonOnSecondView.layer.cornerRadius = 10
+//        buttonOnSecondView.layer.cornerRadius = 10
         // Do any additional setup after loading the view, typically from a nib.
         self.hideKeyboardWhenTappedAround()
         
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     
@@ -86,8 +93,8 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
     
     //makes sure the email inputted follows the format of "username@aggies.ncat.edu"
     func validateStudentEmail(studentEmail: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-//        let emailRegEx = "[A-Z0-9a-z._%+-]+@\W*[aggies.ncat.edu]" // make everything after the @ only match aggies.ncat.edu
+
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@aggies\\.ncat\\.edu"  // make everything after the @ only match aggies.ncat.edu
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         
         if (emailTest.evaluate(with: studentEmail)){
@@ -130,6 +137,13 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         //Call to check text fields for correct input
         email = String(emailField.text!)
         let checkFields: Bool = checkAndValidateFields()
+        
+//        if emailField.text != nil{
+//            email = emailField.text
+//            print(email!)
+//        }else{
+//
+//        }
         let checkEmail: Bool =  validateStudentEmail(studentEmail: email!)
         if (checkFields || checkEmail) {
             return
