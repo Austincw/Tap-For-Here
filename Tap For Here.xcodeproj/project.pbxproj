@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E1F69BC2273AAD200B1166C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F69BB2273AAD200B1166C /* InfoViewController.swift */; };
+		3E1F69BE227560F600B1166C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F69BD227560F600B1166C /* RulesViewController.swift */; };
 		3E8580A5225B8C89008ED01C /* RecordAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8580A4225B8C89008ED01C /* RecordAttendance.swift */; };
 		3EC6712B2242A17E00A87D07 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6712A2242A17E00A87D07 /* SignInViewController.swift */; };
 		543056DD8F7C7FD06231F361 /* Pods_Tap_For_Here.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E7808B56BC0AC4B8E164CC /* Pods_Tap_For_Here.framework */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E1F69BB2273AAD200B1166C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		3E1F69BD227560F600B1166C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		3E8580A4225B8C89008ED01C /* RecordAttendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAttendance.swift; sourceTree = "<group>"; };
 		3EC6712A2242A17E00A87D07 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		56E7808B56BC0AC4B8E164CC /* Pods_Tap_For_Here.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tap_For_Here.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +89,8 @@
 				8DAAFB81222495CC00DAE1DE /* AppDelegate.swift */,
 				8DAAFB83222495CC00DAE1DE /* ViewController.swift */,
 				8DAAFB85222495CC00DAE1DE /* Main.storyboard */,
+				3E1F69BD227560F600B1166C /* RulesViewController.swift */,
+				3E1F69BB2273AAD200B1166C /* InfoViewController.swift */,
 				3EC6712A2242A17E00A87D07 /* SignInViewController.swift */,
 				8D65653A223ABEF0007EDD64 /* SecondViewController.swift */,
 				8DAAFB88222495CC00DAE1DE /* Assets.xcassets */,
@@ -265,8 +271,10 @@
 				8D65653B223ABEF0007EDD64 /* SecondViewController.swift in Sources */,
 				3E8580A5225B8C89008ED01C /* RecordAttendance.swift in Sources */,
 				8DAAFB84222495CC00DAE1DE /* ViewController.swift in Sources */,
+				3E1F69BC2273AAD200B1166C /* InfoViewController.swift in Sources */,
 				8DAAFB82222495CC00DAE1DE /* AppDelegate.swift in Sources */,
 				3EC6712B2242A17E00A87D07 /* SignInViewController.swift in Sources */,
+				3E1F69BE227560F600B1166C /* RulesViewController.swift in Sources */,
 				8D4E5610222852860029F355 /* NFCReadTag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
