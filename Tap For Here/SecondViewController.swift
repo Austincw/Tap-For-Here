@@ -34,6 +34,8 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
     var email: String?
     var fullname: String!
     var studentEmail = UserDefaults.standard.string(forKey: "Student Email")
+    var registerButtonView = UserDefaults.standard.bool(forKey: "Register Button")
+    var coursesButtonView = UserDefaults.standard.bool(forKey: "View Courses Button")
     
     
     //renamed text fields to be relevant to inputs
@@ -44,6 +46,7 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var validEmailLabel: UILabel!
     @IBOutlet weak var emailMismatchLabel: UILabel!
+    @IBOutlet weak var nameMismatchLabel: UILabel!
     
     @IBAction func backButton(_ sender: UIButton) {
         performSegue(withIdentifier: "segue", sender: self)
@@ -88,6 +91,11 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         db = Database.database().reference()
         self.db.child("RegisteredStudents").updateChildValues([name: studentEmail])
         
+        UserDefaults.standard.set(true, forKey: "Register Button")
+        UserDefaults.standard.set(false, forKey: "View Courses Button")
+        performSegue(withIdentifier: "segue", sender: self)
+        
+        
     }
     
     
@@ -131,26 +139,70 @@ class SecondViewController: UIViewController, GIDSignInUIDelegate,  UIScrollView
         
     }
     
+//    func checkGoogleSignIn(){
+//        print("inside sign check")
+//        DispatchQueue.main.async {
+//
+//
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if user != nil {
+//                // user is signed in
+//
+//                print("signed in")
+//                self.signInCheck = false
+//                completion(false)
+//                DispatchQueue.main.async {
+//                    self.signInCheck = false
+//                }
+//            } else {
+//                // user is not signed in
+//                let notSignedIn = UIAlertController(title: "Not Signed In", message: "You must Sign-In into Google with NCAT Email to proceed", preferredStyle: .alert)
+//
+//                notSignedIn.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                self.present(notSignedIn, animated: true)
+//
+//
+//                print("not signed in")
+//                self.signInCheck = true
+//                completion(true)
+//                DispatchQueue.main.async {
+//                    self.signInCheck = true
+//                }
+//            }
+//
+//
+//        }
+//        }
+//    }
+    
+  
+    
     
     @IBAction func submitInfo(_ sender: Any) {
         
-        //Call to check text fields for correct input
+//        try! Auth.auth().signOut()
+        
+        //Calls to check text fields, correct email input, and google sign-in
         email = String(emailField.text!)
         let checkFields: Bool = checkAndValidateFields()
-        
-//        if emailField.text != nil{
-//            email = emailField.text
-//            print(email!)
-//        }else{
-//
-//        }
         let checkEmail: Bool =  validateStudentEmail(studentEmail: email!)
         if (checkFields || checkEmail) {
+            print("failed")
             return
         }
         
+        
         firstName = String(firstNameField.text!)
         lastName = String(lastNameField.text!)
+        let nameRegEx = "[-a-zA-Z' ]{2,26}"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+        if(nameTest.evaluate(with: firstName!) && nameTest.evaluate(with: lastName!)){
+            nameMismatchLabel.isHidden = true
+        }else{
+            nameMismatchLabel.isHidden = false
+            return
+        }
+        
         firstNameField.text = ""
         lastNameField.text = ""
         emailField.text = ""
