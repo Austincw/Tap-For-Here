@@ -313,12 +313,23 @@
                                     <segue destination="clK-7W-E1N" kind="show" identifier="segueInfo" id="kTZ-1j-r1y"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOu-Iq-BiI">
+                                <rect key="frame" x="75" y="445" width="225" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="View Courses Group-1"/>
+                                <connections>
+                                    <action selector="viewCoursesButton:" destination="E3R-Cg-7I5" eventType="touchUpInside" id="0pO-nE-0vr"/>
+                                    <segue destination="x2R-Xg-Nh2" kind="show" identifier="coursesSegue" id="RTk-Ji-yc9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="QCw-tV-ZQw"/>
                     </view>
                     <connections>
+                        <outlet property="registerButton" destination="daq-hc-XgC" id="nAu-co-BN9"/>
                         <outlet property="scanButton" destination="Deh-CR-3Mq" id="JdF-2a-7TL"/>
+                        <outlet property="viewCoursesButton" destination="nOu-Iq-BiI" id="BpB-Va-jYQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfh-SJ-34y" sceneMemberID="firstResponder"/>
@@ -334,7 +345,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Register Background Group" translatesAutoresizingMaskIntoConstraints="NO" id="7YE-Ap-Rww">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-Bp-cbc">
@@ -398,14 +409,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XJI-RX-zvn">
                                 <rect key="frame" x="30" y="320" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter a valid NCAT student email." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HG-Ur-a6A">
                                 <rect key="frame" x="30" y="236" width="309" height="21"/>
@@ -416,6 +427,13 @@
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Emails DO NOT match." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ4-td-Cnh">
                                 <rect key="frame" x="30" y="355" width="174.66666666666666" height="20.333333333333329"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.37659736840000002" blue="0.33780003009999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First or Last name format error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-wq-5yI">
+                                <rect key="frame" x="30" y="138" width="234" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.37659736840000002" blue="0.33780003009999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -432,6 +450,7 @@
                         <outlet property="emailMismatchLabel" destination="VJ4-td-Cnh" id="heD-0G-AsZ"/>
                         <outlet property="firstNameField" destination="C3r-yI-F9s" id="kDN-cd-m2f"/>
                         <outlet property="lastNameField" destination="lf8-hf-Tap" id="SVT-Ye-gap"/>
+                        <outlet property="nameMismatchLabel" destination="GvI-wq-5yI" id="wN6-u3-JG7"/>
                         <outlet property="submitButton" destination="slQ-dy-Jw8" id="g77-wW-diR"/>
                         <outlet property="validEmailLabel" destination="7HG-Ur-a6A" id="VGh-HH-Ucg"/>
                     </connections>
@@ -478,11 +497,49 @@
             </objects>
             <point key="canvasLocation" x="1242" y="1687"/>
         </scene>
+        <!--View Courses View Controller-->
+        <scene sceneID="6Pv-Lf-3fS">
+            <objects>
+                <viewController id="x2R-Xg-Nh2" customClass="ViewCoursesViewController" customModule="Tap_For_Here" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="anF-Ru-PhL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Register Background Group" translatesAutoresizingMaskIntoConstraints="NO" id="EZP-5T-QH2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiJ-gj-gvv">
+                                <rect key="frame" x="15" y="30" width="39" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="x2R-Xg-Nh2" eventType="touchUpInside" id="rcv-D5-JZF"/>
+                                    <segue destination="E3R-Cg-7I5" kind="show" identifier="coursesSegue" id="PPg-TJ-gJp"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Course List" translatesAutoresizingMaskIntoConstraints="NO" id="eIg-On-sIC">
+                                <rect key="frame" x="111" y="71" width="152" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UUJ-3K-UBz"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageTitle" destination="eIg-On-sIC" id="jQA-bE-Za4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bp-Ww-R8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2268" y="1768"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Accept Group" width="170" height="39"/>
         <image name="Back" width="39" height="25"/>
         <image name="Confirm Email Group" width="270" height="55"/>
+        <image name="Course List" width="153" height="41"/>
         <image name="FLS Background Group" width="375" height="667"/>
         <image name="First Name Group" width="135" height="57"/>
         <image name="Home Background Group" width="375" height="667"/>
@@ -498,9 +555,10 @@
         <image name="Register Group" width="225" height="61"/>
         <image name="Submit Group" width="133" height="30"/>
         <image name="Title Group" width="375" height="55"/>
+        <image name="View Courses Group-1" width="225" height="61"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W8e-Ed-nuu"/>
+        <segue reference="PPg-TJ-gJp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.26951681360000002" green="0.24943172620000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

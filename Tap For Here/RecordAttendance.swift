@@ -14,24 +14,29 @@ import FirebaseDatabase
 class RecordAttendance: NSObject {
     
     var db: DatabaseReference!
-    var studEmail = UserDefaults.standard.string(forKey: "Student Email")
+    var studEmail = UserDefaults.standard.string(forKey: "Student Email") ?? ""
     var myCourse: String?
-    
-//    var foundCourse = false
-    var foundTime = false
+    var foundCourse = false
     
     
     // Function to mark the student down for attendance in the correct class
     func markAttendanceRecord(currentCourse: String){
         
         let delim = "@"
-        let studEmailKey = studEmail!.components(separatedBy: delim)
+        let studEmailKey = studEmail.components(separatedBy: delim)
+        
+        let date = NSDate()
+        let format = DateFormatter()
+        format.timeZone = TimeZone.current
+        format.dateFormat = "MM-dd"
+        let currentDay = format.string(from: date as Date)
         
         let markAttenRef = Database.database().reference()
+        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues(["acwashi1": true]) // USED FOR TESTING
+        markAttenRef.child("ClassAttendance").child(currentCourse).child("01-09").updateChildValues(["acwashi1": true])  // USED FOR TESTING
 
-        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues(["frank": true])
-
-//        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues([studEmailKey[0]: true])
+//        markAttenRef.child("ClassList").child(currentCourse).child("roster").updateChildValues([studEmailKey[0]: true])  // REAL VERSION TO RUN
+//        markAttenRef.child("ClassAttendance").child(currentCourse).child(currentDay).updateChildValues([studEmailKey[0]: true])  // REAL VERSION TO RUN
 
         
         
@@ -50,27 +55,25 @@ class RecordAttendance: NSObject {
             for data in snapshot.children {
                 
                 let courseID = (data as AnyObject).key as String
-//                self.checkCourseTime(course: courseID)
                 
-                self.checkCourseTime(course: courseID){ (myCourse) -> () in
-                    if self.foundTime == true{
+                self.checkCourseData(course: courseID){ (myCourse) -> () in
+                    if self.foundCourse == true{
                         self.markAttendanceRecord(currentCourse: myCourse)
                     }else{
-                        print("NO COURSE FOUND")
+                        print("no course found")
                     }
-                    
                 }
-
             }
             
         })
+        
+        
     }
     //** End of Attendance function **
     //********************************
     
-    
-    
-    func checkCourseTime(course: String, completion: @escaping (String)->()){
+ 
+    func checkCourseData(course: String, completion: @escaping (String)->()){
         
         let date = NSDate()
         let format = DateFormatter()
@@ -94,32 +97,16 @@ class RecordAttendance: NSObject {
             
 
 //            if (Int(startT!)! <= timeInt && timeInt <= Int(endT!)! && (daysOfWeek?.contains(weekDayLetter[0]))!) { // The official version
-
-            if (Int(startT!)! <= timeInt && timeInt <= Int(endT!)! && (daysOfWeek?.contains(weekDayLetter[0]))!) { // The official version
-                self.foundTime = true
-                completion(course)
-            }
-//            let testTime = 1215
-//            let dayLetterTest = "T"
-//            if (Int(startT!)! <= testTime && testTime <= Int(endT!)! && (daysOfWeek?.contains(dayLetterTest))!) { //THIS ONE IS USED FOR TESTING
-
 //                self.foundTime = true
 //                completion(course)
 //            }
-            let testTime = 1215
-            let dayLetterTest = "T"
+            
+            let testTime = 1615
+            let dayLetterTest = "M"
             if (Int(startT!)! <= testTime && testTime <= Int(endT!)! && (daysOfWeek?.contains(dayLetterTest))!) { //THIS ONE IS USED FOR TESTING
-                self.foundTime = true
+                self.foundCourse = true
                 completion(course)
             }
-            
-            // DELETE SECTION BELOW
-//            print(course)
-//            print(daysOfWeek!)
-//            print(weekDayLetter[0])
-//            print(Int(startT!)!)
-//            print(Int(endT!)!)
-            
             
         })
         
