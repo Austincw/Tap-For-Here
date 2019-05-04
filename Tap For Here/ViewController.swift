@@ -81,26 +81,20 @@ class ViewController: UIViewController{
         recAttend.determineAttendance(roomID: simScan) // FOR SIMULATION PURPOSES
 //        scanTag.start() // Read Physical NFC Tag
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: { // USED FOR SIMULATION, COMMENT OUT WHEN FINISHED TESTING
 
-            if self.recAttend.foundCourse == false {
-                self.courseNotFound()
-            }else if self.recAttend.foundCourse == true{
-                self.markAttendanceSuccess()
-            }
-        })
 
 
     }
     
     func passToAttendance(tagMsg: String){
         recAttend.determineAttendance(roomID: tagMsg) // Record student attendance
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-            
-            if self.recAttend.foundCourse == false {
-                self.courseNotFound()
-            }
-        })
+        if foundCourse == true{
+            self.markAttendanceSuccess()
+        }else if foundCourse == false{
+            self.courseNotFound()
+        }
+        
+        
     }
     
     func courseNotFound(){
