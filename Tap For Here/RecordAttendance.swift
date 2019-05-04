@@ -10,13 +10,14 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 
+var foundCourse = false
 
 class RecordAttendance: NSObject {
     
     var db: DatabaseReference!
     var studEmail = UserDefaults.standard.string(forKey: "Student Email") ?? ""
     var myCourse: String?
-    var foundCourse = false
+//    var foundCourse = false
     
     
     // Function to mark the student down for attendance in the correct class
@@ -57,7 +58,7 @@ class RecordAttendance: NSObject {
                 let courseID = (data as AnyObject).key as String
                 
                 self.checkCourseData(course: courseID){ (myCourse) -> () in
-                    if self.foundCourse == true{
+                    if foundCourse == true{
                         self.markAttendanceRecord(currentCourse: myCourse)
                     }else{
                         print("no course found")
@@ -104,7 +105,7 @@ class RecordAttendance: NSObject {
             let testTime = 1615
             let dayLetterTest = "M"
             if (Int(startT!)! <= testTime && testTime <= Int(endT!)! && (daysOfWeek?.contains(dayLetterTest))!) { //THIS ONE IS USED FOR TESTING
-                self.foundCourse = true
+                foundCourse = true
                 completion(course)
             }
             
