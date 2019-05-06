@@ -1,0 +1,12 @@
+{
+    "name": "awashington/firebase",
+    "description": "Project Database",
+    "type": "project",
+    "license": "GNU3",
+    "minimum-stability": "dev",
+
+    "require": {
+        "kreait/firebase-php": "^4.18",
+        "php": ">= 7.1.19"
+    }
+}
