@@ -21,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GIDSig
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        UserDefaults.standard.set("false", forKey: "Register Button")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let rootViewController = storyboard.instantiateViewController(withIdentifier: UserDefaults.standard.bool(forKey: "rulesAccepted") ? "rulesViewControllerID" : "homeViewControllerID")
+        
+        window?.rootViewController = rootViewController
+
+        
         FirebaseApp.configure()
         
          //Used for Secure Google Sign when first opening application to allow for secure reading and writing to the database.
@@ -31,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, GIDSig
         
         return true
     }
+    
+    
     
     //******************************************
     //**** BEGINNING OF GOOGLE SIGN IN CODE ****

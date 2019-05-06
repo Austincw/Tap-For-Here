@@ -50,10 +50,6 @@ class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
                     scannedMessage = tagMessage.components(separatedBy: "#")
                     vc.passToAttendance(tagMsg: scannedMessage[1])
 
-                
-                    
-                    
-
 //                    db = Database.database().reference()
 //                    db.updateChildValues(["username": tagMessage])
                 }
