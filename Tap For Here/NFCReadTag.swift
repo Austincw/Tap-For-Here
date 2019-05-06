@@ -13,25 +13,45 @@ import FirebaseDatabase
 
 class NFCReadTag: NSObject, NFCNDEFReaderSessionDelegate{
     
-    var ref: DatabaseReference!
+    var db: DatabaseReference!
+    var tagMessage: String!
+    var scannedMessage = [String]()
+    
+    
+    //TESTING METHOD FOR READING NFC TAG ON IPHONE SIM
+    //***** DELETE LATER *****
+    func simReadNFC()-> String{
+        return "Graham 210"
+    }
+    //************************
+    
+   
     
     func start(){
         let session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
         session.begin()
+        
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
         print(error.localizedDescription)
     }
     
-    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+    
+    //Used for creating an NFC reader session to read contents on NFC tag
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]){
         for message in messages {
             for record in message.records {
-                if let string = String(data: record.payload, encoding: .ascii){
-                    print(string)
+                tagMessage = String.init(data: record.payload.advanced(by: 3), encoding: .utf8)!
+                if (tagMessage != nil) {
                     
-                    ref = Database.database().reference()
-                    ref.setValue(["username": string])
+                    print(tagMessage)
+                    let vc = ViewController()
+                    scannedMessage = tagMessage.components(separatedBy: "#")
+                    vc.passToAttendance(tagMsg: scannedMessage[1])
+
+//                    db = Database.database().reference()
+//                    db.updateChildValues(["username": tagMessage])
                 }
             }
         }
